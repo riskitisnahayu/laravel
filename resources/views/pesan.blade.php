@@ -79,14 +79,22 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Belajar Laravel
+                    Pesan
                 </div>
 
-                <div class="links">
-                    <a href="pesan">Pesan</a>
-                    <a href="about">About</a>
+                <form class="" action="{{ url('/pesan/kirim')}}" method="post">
+                    {{-- semua form pada laravel harus memiliki crsf token --}}
+                    {{ csrf_field() }}
+                    <div>
+                        <strong>Pesan</strong>
+                        <input type="text" name="pesan" value="" placeholder="Tuliskan pesan" class="form-control">
+                        {{-- {!! Form::text('pesan',null,array('placeholder'=>'Tuliskan pesan','class'=>'form control')) !!} --}}
+                        <button type="submit" class="btn btn-primary">Kirim</button>
 
-                </div>
+                    </div>
+                </form>
+                {{-- {!! Form::open(array('url'=>'pesan/kirim','method'=>'POST')) !!} --}}
+
             </div>
         </div>
     </body>
